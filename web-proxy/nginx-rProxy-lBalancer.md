@@ -1,5 +1,10 @@
 Take this part
 ```
+upstream my_app_pool {
+    server app02;
+    # server app03; # You can add more clones here later
+}
+
 server {
         listen       80;
         listen       443 ssl;  # Listen for both standard and secure traffic
@@ -31,6 +36,13 @@ server {
 
 # 🛠️ Nginx Server Block: Detailed Breakdown
 This configuration defines the Front Door (app01). It manages incoming traffic, handles security (SSL), and forwards requests to the backend "clones" (app02, app03).
+
+## The Load Balancer Pool (Upstream)
+This block must sit **outside** and **above** the `server` block. It defines who the "Muscle" servers are.
+
+- **upstream [name]: Creates a named cluster of backend servers. In our case, we named it `my_app_pool`.
+- **`server app02:`** This tells Nginx that `app02` is a member of the pool. Because we added `app02` to our `/etc/hosts` file earlier, Nginx knows exactly which IP to talk to.
+- **Load Balancing Logic:** By default, Nginx uses Round Robin. If you had app02 and app03, the first request would go to #2, the second to #3, and so on.
 
 ## 1. Connection & Identity
 ```
