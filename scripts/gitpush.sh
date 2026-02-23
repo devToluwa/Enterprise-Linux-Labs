@@ -38,4 +38,4 @@ git commit -m "$commit_msg" || echo -e "${YELLOW} No changes to cmooit${NC}"
 echo -e "${GREEN}Pushing to origin, branch = $BRANCH...${NC}"
 git push origin "$BRANCH"
 
-[$? -eq 0 ] && echo -e "\n${GREEN}All done! Successfully pushed${NC}" || echo -e "\n${RED}Push Failed${NC}"
+[ $? -eq 0 ] && echo -e "\n${GREEN}All done! Successfully pushed${NC}" || echo -e "\n${RED}Push Failed${NC}"

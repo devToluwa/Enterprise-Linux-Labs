@@ -37,8 +37,14 @@ server {
 # 🛠️ Nginx Server Block: Detailed Breakdown
 This configuration defines the Front Door (app01). It manages incoming traffic, handles security (SSL), and forwards requests to the backend "clones" (app02, app03).
 
-## The Load Balancer Pool (Upstream)
+## 0. The Load Balancer Pool (Upstream)
 This block must sit **outside** and **above** the `server` block. It defines who the "Muscle" servers are.
+```
+upstream my_app_pool {
+    server app02;
+    # server app03; # You can add more clones here later
+}
+```
 
 - **upstream [name]: Creates a named cluster of backend servers. In our case, we named it `my_app_pool`.
 - **`server app02:`** This tells Nginx that `app02` is a member of the pool. Because we added `app02` to our `/etc/hosts` file earlier, Nginx knows exactly which IP to talk to.
