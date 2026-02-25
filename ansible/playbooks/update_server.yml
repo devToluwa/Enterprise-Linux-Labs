@@ -1,0 +1,9 @@
+- name: Update all servers
+  hosts: all_servers
+  become: yes
+  
+  tasks:
+    - name: update all packages
+    dnf:
+      name: "*"
+      state: latest
