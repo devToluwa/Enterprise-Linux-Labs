@@ -1,0 +1,9 @@
+- name: Install NGINX
+  hosts: dbservers
+ # become: yes
+
+  tasks:
+  - name: install nginx on db server
+    dnf:
+      name: nginx
+      state: present

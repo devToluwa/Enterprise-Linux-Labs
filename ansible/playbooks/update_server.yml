@@ -1,9 +1,15 @@
+---
 - name: Update all servers
-  hosts: all_servers
+  hosts: allservers
   become: yes
-  
+
   tasks:
+    - name: Install EPEL repository (required for extra packages)
+      ansible.builtin.dnf:
+        name: epel-release
+        state: present
+
     - name: update all packages
-    dnf:
-      name: "*"
-      state: latest
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest

@@ -1,0 +1,9 @@
+- name: TRAINS
+  hosts: allservers
+  become: yes
+
+  tasks:
+  - name: trains on all servers
+    dnf:
+      name: sl
+      state: present
