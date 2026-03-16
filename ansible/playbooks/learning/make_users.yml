@@ -1,0 +1,13 @@
+- name: create users
+  hosts: all
+  become: yes
+  
+  vars:
+    users_to_create: ben
+  
+  tasks:
+    - name: create some niggas  
+      user:
+        name: "{{ users_to_create }}"
+        state: present
+    

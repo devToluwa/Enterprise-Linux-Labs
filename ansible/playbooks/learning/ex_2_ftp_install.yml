@@ -1,0 +1,20 @@
+- name: setup FTP
+  hosts: all
+  become: yes
+  tasks:
+    - name: install FTP protocol
+      dnf:
+        name: vsftpd  
+        state: present
+    
+    - name: start FTP service and enable it
+      service:
+        name: vsftpd
+        enabled: yes
+        state: started
+
+    - name: create welcome intro
+      copy:
+        dest: /etc/vsftpd/banner.txt
+        content: "I said OHHHHH O O O, baby turn the lights on"
+

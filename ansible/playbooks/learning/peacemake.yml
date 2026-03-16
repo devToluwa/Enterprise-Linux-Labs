@@ -1,0 +1,8 @@
+- name: delete account
+  hosts: all
+  become: yes
+  tasks:
+    - name: delete user 'john' from servers
+      user:
+        name: john
+        state: present

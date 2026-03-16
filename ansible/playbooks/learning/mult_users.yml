@@ -1,0 +1,19 @@
+- name: del multiple users
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: make the users
+      user:
+        name: "{{ item }}"
+        state: absent
+        comment: "weird ass niggas"
+      with_items:
+        - john
+        - blade
+        - NIGGAS
+        - baby
+        - dont
+        - hurt
+        - me
+        - n0_more

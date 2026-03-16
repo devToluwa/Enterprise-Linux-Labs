@@ -1,0 +1,8 @@
+- name: print sth to all servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: put welcome message on all servers 
+      copy:
+        dest: /etc/motd
+        content: "This server is managed by Toluwa Ansible master"

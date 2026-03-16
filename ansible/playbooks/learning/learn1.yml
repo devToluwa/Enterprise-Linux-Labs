@@ -1,0 +1,11 @@
+- name: make user
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: create john user
+      user:
+        name: john
+        comment: "default human"
+        password: "123456"
+        groups: wheel 
