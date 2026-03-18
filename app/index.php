@@ -17,7 +17,7 @@ $result = $conn->query($sql);
     <div class="max-w-5xl mx-auto">
         <div class="flex justify-between items-center mb-8 border-b border-gray-700 pb-4">
             <div>
-                <h1 class="text-3xl font-bold text-cyan-400">Database Admin</h1>
+                <h1 class="text-3xl font-bold text-cyan-400">Database Admin v2 Deployed via <span style="color:white">CI/CD</span></h1>
                 <p class="text-gray-400">DB Status: <span class="<?php echo $status_color; ?> font-mono"><?php echo $db_status; ?></span></p>
             </div>
             <div class="bg-gray-800 px-4 py-2 rounded-lg border border-gray-700 text-sm">

@@ -1,0 +1,25 @@
+name: Deploy App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job_1:
+    runs-on: self-hosted
+    env:
+      WEB_ROOT: /var/www/html
+      APP01: 192.168.153.10
+      APP02: 192.168.153.11
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rsync on all servers
+        run: ansible-playbook -i $GITHUB_WORKSPACE/ansible/configs/inventory.ini $GITHUB_WORKSPACE/ansible/playbooks/install_rsync.yml
+
+      - name: Deploy web files to app01
+        run: rsync -avz $GITHUB_WORKSPACE/app/* ${{ env.WEB_ROOT }}/
+      - name: Deploy web files to app02
+        run: rsync -avz $GITHUB_WORKSPACE/app/* root@${{ env.APP02 }}:${{ env.WEB_ROOT }}/

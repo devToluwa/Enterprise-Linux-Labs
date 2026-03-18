@@ -1,0 +1,9 @@
+- name: Install rsync on web servers
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Install rsync
+      dnf:
+        name: rsync
+        state: present
