@@ -20,6 +20,6 @@ jobs:
         run: ansible-playbook -i $GITHUB_WORKSPACE/ansible/configs/inventory.ini $GITHUB_WORKSPACE/ansible/playbooks/install_rsync.yml
 
       - name: Deploy web files to app01
-        run: rsync -avz $GITHUB_WORKSPACE/app/* ${{ env.WEB_ROOT }}/
+        run: sudo rsync -avz $GITHUB_WORKSPACE/app/* ${{ env.WEB_ROOT }}/
       - name: Deploy web files to app02
-        run: rsync -avz $GITHUB_WORKSPACE/app/* root@${{ env.APP02 }}:${{ env.WEB_ROOT }}/
+        run: sudo rsync -avz $GITHUB_WORKSPACE/app/* root@${{ env.APP02 }}:${{ env.WEB_ROOT }}/
