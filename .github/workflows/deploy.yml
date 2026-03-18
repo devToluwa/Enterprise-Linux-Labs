@@ -16,8 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      #- name: Install Rsync on all servers
+      #  run: ansible-playbook -i $GITHUB_WORKSPACE/ansible/configs/inventory.ini $GITHUB_WORKSPACE/ansible/playbooks/install_rsync.yml
+      
       - name: Install Rsync on all servers
-        run: ansible-playbook -i $GITHUB_WORKSPACE/ansible/configs/inventory.ini $GITHUB_WORKSPACE/ansible/playbooks/install_rsync.yml
+        run: ansible-playbook -i $GITHUB_WORKSPACE/ansible/configs/inventory.ini $GITHUB_WORKSPACE/ansible/playbooks/install_rsync.yml --ask-become-pass
 
       - name: Deploy web files to app01
         run: sudo rsync -avz $GITHUB_WORKSPACE/app/* ${{ env.WEB_ROOT }}/
