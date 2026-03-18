@@ -1,4 +1,10 @@
 <?php
+// Load .env file
+$env = parse_ini_file(__DIR__ . '/.env');
+foreach ($env as $key => $value) {
+    putenv("$key=$value");
+}
+
 // Global Database Settings
 define('DB_HOST', getenv('DB_HOST'));
 define('DB_USER', getenv('DB_USER'));
