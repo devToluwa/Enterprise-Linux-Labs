@@ -1,3 +1,2 @@
-ansible/configs/inventory.ini
 db_backups/
 app/.env
