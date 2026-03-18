@@ -26,6 +26,5 @@ jobs:
 
       - name: Deploy web files to app01
         run: sudo rsync -avz $GITHUB_WORKSPACE/app/* ${{ env.WEB_ROOT }}/
-        env:
       - name: Deploy web files to app02
         run: sudo rsync -avz $GITHUB_WORKSPACE/app/* root@${{ env.APP02 }}:${{ env.WEB_ROOT }}/
