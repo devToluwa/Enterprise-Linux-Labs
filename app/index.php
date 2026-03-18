@@ -1,7 +1,7 @@
 <?php
 require_once('db_config.php');
 
-// Fetch Users from the DB
+// Fetch Users from my DB
 $sql = "SELECT id, name, role FROM users";
 $result = $conn->query($sql);
 ?>
