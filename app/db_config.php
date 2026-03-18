@@ -1,9 +1,13 @@
 <?php
 // Global Database Settings
-define('DB_HOST', getenv('DB_HOST'));
-define('DB_USER', getenv('DB_USER'));
-define('DB_PASS', getenv('DB_PASS'));
-define('DB_NAME', getenv('DB_NAME'));
+#define('DB_HOST', getenv('DB_HOST'));
+#define('DB_USER', getenv('DB_USER'));
+#define('DB_PASS', getenv('DB_PASS'));
+#define('DB_NAME', getenv('DB_NAME'));
+define('DB_HOST', '192.168.153.12');
+define('DB_USER', 'labUser');
+define('DB_PASS', '123456');
+define('DB_NAME', 'PRODUCTION');
 
 // Global Identity Settings
 $app_server_name = gethostname();
