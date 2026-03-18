@@ -25,6 +25,6 @@ jobs:
           BECOME_PASSWORD: $ {{ secrets.BECOME_PASSWORD }}
 
       - name: Deploy web files to app01
-        run: sudo rsync -avz $GITHUB_WORKSPACE/app/* ${{ env.WEB_ROOT }}/
+        run: rsync -avz $GITHUB_WORKSPACE/app/* ${{ env.WEB_ROOT }}/
       - name: Deploy web files to app02
-        run: sudo rsync -avz $GITHUB_WORKSPACE/app/* root@${{ env.APP02 }}:${{ env.WEB_ROOT }}/
+        run: rsync -avz $GITHUB_WORKSPACE/app/* root@${{ env.APP02 }}:${{ env.WEB_ROOT }}/
