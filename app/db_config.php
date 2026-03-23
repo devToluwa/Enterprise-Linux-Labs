@@ -1,4 +1,5 @@
 <?php
+// db_config.php
 // Load .env file
 $env = parse_ini_file(__DIR__ . '/.env');
 foreach ($env as $key => $value) {

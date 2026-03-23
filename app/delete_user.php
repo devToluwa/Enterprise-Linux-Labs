@@ -1,4 +1,5 @@
 <?php
+// delete_user.php
 require_once('db_config.php');
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {

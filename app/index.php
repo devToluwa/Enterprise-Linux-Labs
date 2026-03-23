@@ -1,4 +1,5 @@
 <?php
+// index.php
 require_once('db_config.php');
 
 // Fetch Users from DB
