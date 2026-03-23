@@ -1,3 +1,4 @@
 # you cant see me :)
 db_backups/
 app/.env
+ansible/playbooks/learning
