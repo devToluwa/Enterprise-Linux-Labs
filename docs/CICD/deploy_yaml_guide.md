@@ -9,7 +9,7 @@ The deployment configuration file lives at `.github/workflows/deploy.yml`.\
 
 **Example workflow file below**
 ```
-name: name_you_see_on_github
+name: namee_you_see_on_github
 
 on: #what trigger
   push: #the thing you want to trigger the workflow
