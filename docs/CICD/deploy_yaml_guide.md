@@ -1,4 +1,4 @@
-# Deploy.yaml Guide
+# Deplowy.yaml Guide
 **Goal:** A "Cheat Sheat" for writing the CICD Config Files
 
 The deployment configuration file lives at `.github/workflows/deploy.yml`.\
