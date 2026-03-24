@@ -5,3 +5,4 @@ ansible/playbooks/learning
 docker/.env
 **/.env
 .env
+scripts/.secret
