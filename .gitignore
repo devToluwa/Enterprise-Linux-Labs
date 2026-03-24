@@ -2,3 +2,6 @@
 db_backups/
 app/.env
 ansible/playbooks/learning
+docker/.env
+**/.env
+.env
