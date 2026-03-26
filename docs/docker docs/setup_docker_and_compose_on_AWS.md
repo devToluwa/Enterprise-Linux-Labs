@@ -20,23 +20,9 @@ sudo systemctl enable docker
 
 ---
 
-## 2. Add Your User to the Docker Group
 
-When Docker installs, it creates a `docker` system group. Only root and members of this group can run Docker commands without `sudo`. Add your user:
 
-```bash
-sudo usermod -aG docker ec2-user
-```
-
-Apply the group change without logging out:
-
-```bash
-newgrp docker
-```
-
----
-
-## 3. Install Docker Compose
+## 2. Install Docker Compose
 
 Amazon Linux 2023's Docker package does not bundle Compose by default. Install it manually as a Docker CLI plugin:
 
@@ -51,7 +37,9 @@ sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
 ---
 
-## 4. Install Docker Buildx (if needed)
+
+
+## 3. Install Docker Buildx (if needed)
 
 The version of Buildx bundled with Amazon Linux's Docker package may be too old to support `docker compose build`. If you hit the error `compose build requires buildx 0.17.0 or later`, install a newer version manually:
 
@@ -64,12 +52,28 @@ sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 
 ---
 
-## 5. Verify
+## 4. Verify
 
 ```bash
 docker --version
 docker compose version
 docker buildx version
+```
+
+---
+
+## 5. Add Your User to the Docker Group
+
+When Docker installs, it creates a `docker` system group. Only root and members of this group can run Docker commands without `sudo`. Add your user:
+
+```bash
+sudo usermod -aG docker ec2-user
+```
+
+Apply the group change without logging out:
+
+```bash
+newgrp docker
 ```
 
 ---
